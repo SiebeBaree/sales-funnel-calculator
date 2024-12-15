@@ -1,6 +1,7 @@
 import type { NextConfig } from 'next';
+import { withPlausibleProxy } from 'next-plausible';
 
-const nextConfig: NextConfig = {
+const config: NextConfig = {
     poweredByHeader: false,
     eslint: {
         ignoreDuringBuilds: true,
@@ -10,4 +11,6 @@ const nextConfig: NextConfig = {
     },
 };
 
-export default nextConfig;
+export default withPlausibleProxy({
+    customDomain: 'https://plausible.siebebaree.com',
+})(config);
